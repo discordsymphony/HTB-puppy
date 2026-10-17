@@ -195,3 +195,23 @@ smb: \> ls
 smb: \> get recovery.kdbx 
 getting file \recovery.kdbx of size 2677 as recovery.kdbx (9.1 KiloBytes/sec) (average 9.1 KiloBytes/sec)
 ```
+
+Now we will attempt to extract the keepass hash from recovery.kdbx:
+
+```
+keepass2john recovery.kdbx
+```
+
+#### Output:
+
+```
+! recovery.kdbx : File version '40000' is currently not supported!
+```
+
+Unfortunately the john database is out of date. We will therefore need to update john before continuing:
+
+#### Updating John the Ripper:
+
+```
+cd /opt && git clone https://github.com/openwall/john.git && cd john/src && ./configure && make -s clean && make -sj4
+```
