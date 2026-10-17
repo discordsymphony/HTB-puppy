@@ -55,4 +55,39 @@ PORT      STATE SERVICE       VERSION
 
 ## levi.james -> ant.edwards
 
+Firstly, reading the Hack the Box machine information reveals the following:
 
+```
+As is common in real life pentests, you will start the Puppy box with credentials for the following account: levi.james / KingofAkron2025!
+```
+
+Therefore, we will perform an initial check that our credentials work for SMB:
+
+```
+crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!'
+```
+
+## Results:
+
+```
+SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\levi.james:KingofAkron2025!
+```
+
+As can be seen above, our credentials work with SMB. Building on this, we will check which shares give us read or write access:
+
+```
+crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!' --shares
+```
+
+## Results:
+
+```
+SMB         10.129.232.75   445    DC               Share           Permissions     Remark
+SMB         10.129.232.75   445    DC               -----           -----------     ------
+SMB         10.129.232.75   445    DC               ADMIN$                          Remote Admin
+SMB         10.129.232.75   445    DC               C$                              Default share
+SMB         10.129.232.75   445    DC               DEV                             DEV-SHARE for PUPPY-DEVS
+SMB         10.129.232.75   445    DC               IPC$            READ            Remote IPC
+SMB         10.129.232.75   445    DC               NETLOGON        READ            Logon server share 
+SMB         10.129.232.75   445    DC               SYSVOL          READ            Logon server share 
+```
