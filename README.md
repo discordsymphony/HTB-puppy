@@ -123,5 +123,5 @@ bloodhound
 
 In Bloodhound, we perform an analysis of Group Delegated Object Control, which reveals the following graph:
 
-<img src="Images/01-hr-developers.png" width="500">
+<img src="images/01-hr-developers.png" width="500">
 
