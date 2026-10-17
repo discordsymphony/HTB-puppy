@@ -121,7 +121,7 @@ bloodhound-python -u 'levi.james' -p 'KingofAkron2025!' -ns 10.129.232.75 -d pup
 bloodhound
 ```
 
-In Bloodhound, we perform an analysis of Group Delegated Object Control, which reveals the following graph:
+In Bloodhound, we perform an analysis of Group Delegated Object Control on the levi.james user, which reveals the following graph:
 
 <img src="images/01-hr-developers.png" width="500">
 
