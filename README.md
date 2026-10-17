@@ -69,7 +69,7 @@ Therefore, we will check if our credentials work for SMB.
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!'
 ```
 
-#### Positive result:
+#### Output:
 
 ```
 SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\levi.james:KingofAkron2025!
@@ -81,7 +81,7 @@ As can be seen above, our credentials work with SMB. Building on this, we will c
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!' --shares
 ```
 
-#### SMB shares:
+#### Output:
 
 ```
 SMB         10.129.232.75   445    DC               Share           Permissions     Remark
@@ -92,5 +92,18 @@ SMB         10.129.232.75   445    DC               DEV                         
 SMB         10.129.232.75   445    DC               IPC$            READ            Remote IPC
 SMB         10.129.232.75   445    DC               NETLOGON        READ            Logon server share 
 SMB         10.129.232.75   445    DC               SYSVOL          READ            Logon server share 
+```
+
+However, as can be seen, we do not have read access to the unique DEV share:
+
+```
+smbclient -U 'levi.james%KingofAkron2025!' \\\\10.129.232.75\\DEV
+```
+
+When we try to list the share, we get an access denied message:
+
+```
+smb: \> ls
+NT_STATUS_ACCESS_DENIED listing \*
 ```
 
