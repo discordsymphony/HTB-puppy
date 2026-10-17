@@ -121,8 +121,7 @@ bloodhound-python -u 'levi.james' -p 'KingofAkron2025!' -ns 10.129.232.75 -d pup
 bloodhound
 ```
 
-#### Starting Neo4j:
+In Bloodhound, we perform an analysis of Group Delegated Object Control, which reveals the following graph:
 
-```
-neo4j console
-```
+<img src="Images/01-hr-developers.png" width="500">
+
