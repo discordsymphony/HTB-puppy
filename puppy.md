@@ -215,3 +215,40 @@ Unfortunately the john database is out of date. We will therefore need to update
 ```
 cd /opt && git clone https://github.com/openwall/john.git && cd john/src && ./configure && make -s clean && make -sj4
 ```
+
+Now we are able to extract the keepass hash from recovery.kdbx:
+
+#### Extracting keepass hash:
+
+```
+/opt/john/run/./keepass2john /home/candidbandit/recovery.kdbx > kdbx_hash.txt
+```
+
+#### Cracking hash with john:
+
+```
+/opt/john/run/john --format=KeePass --wordlist=/usr/share/wordlists/rockyou.txt kdbx_hash.txt 
+```
+
+#### Output:
+
+```
+Press 'q' or Ctrl-C to abort, 'h' for help, almost any other key for status
+Failed to use huge pages (not pre-allocated via sysctl? that's fine)
+liverpool        (recovery)     
+1g 0:00:00:07 DONE (2026-10-17 05:28) 0.1290g/s 4.645p/s 4.645c/s 4.645C/s purple..liverpool
+```
+
+Success! We have found the password 'liverpool'. Next, we will need to open the KeePass database:
+
+#### Opening KeePass database:
+
+```
+apt install keepassxc -y
+keepassxc recovery.kdbx
+```
+
+And now, we will log into the application using 'liverpool' as the password:
+
+<img src="images/02-keepass-login" width="500">
+
