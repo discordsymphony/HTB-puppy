@@ -292,3 +292,4 @@ Success! We have found ant.edwards SMB password.
 
 ## ant.edwards -> adam.silver
 
+<img src="images/03-ant-adam.png" width="500">
