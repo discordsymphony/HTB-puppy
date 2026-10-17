@@ -67,7 +67,7 @@ Therefore, we will perform an initial check that our credentials work for SMB:
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!'
 ```
 
-## Results:
+#### Results:
 
 ```
 SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\levi.james:KingofAkron2025!
@@ -79,7 +79,7 @@ As can be seen above, our credentials work with SMB. Building on this, we will c
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!' --shares
 ```
 
-## Results:
+#### Results:
 
 ```
 SMB         10.129.232.75   445    DC               Share           Permissions     Remark
