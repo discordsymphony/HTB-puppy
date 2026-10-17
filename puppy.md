@@ -252,3 +252,24 @@ And now, we will log into the application using 'liverpool' as the password:
 
 <img src="images/02-keepass-login.png" width="500">
 
+Now we have access to a set of usernames and passwords, which we will now extract:
+
+#### users.txt:
+
+```
+adam.silver
+ant.edwards
+jamie.williams
+samuel.blake
+steve.tucker
+```
+
+#### passwords.txt:
+
+```
+HJKL2025!
+Antman2025!
+JamieLove2025!
+ILY2025!
+Steve2025!
+```
