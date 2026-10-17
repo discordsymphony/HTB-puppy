@@ -61,13 +61,15 @@ Firstly, reading the Hack the Box machine information reveals the following:
 As is common in real life pentests, you will start the Puppy box with credentials for the following account: levi.james / KingofAkron2025!
 ```
 
-Therefore, we will perform an initial check that our credentials work for SMB:
+Therefore, we will check if our credentials work for SMB.
+
+#### Run crackmapexec:
 
 ```
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!'
 ```
 
-#### Results:
+#### Positive result:
 
 ```
 SMB         10.129.232.75   445    DC               [+] PUPPY.HTB\levi.james:KingofAkron2025!
@@ -79,7 +81,7 @@ As can be seen above, our credentials work with SMB. Building on this, we will c
 crackmapexec smb 10.129.232.75 -u levi.james -p 'KingofAkron2025!' --shares
 ```
 
-#### Results:
+#### SMB shares:
 
 ```
 SMB         10.129.232.75   445    DC               Share           Permissions     Remark
@@ -91,3 +93,4 @@ SMB         10.129.232.75   445    DC               IPC$            READ        
 SMB         10.129.232.75   445    DC               NETLOGON        READ            Logon server share 
 SMB         10.129.232.75   445    DC               SYSVOL          READ            Logon server share 
 ```
+
