@@ -250,5 +250,5 @@ keepassxc recovery.kdbx
 
 And now, we will log into the application using 'liverpool' as the password:
 
-<img src="images/02-keepass-login" width="500">
+<img src="images/02-keepass-login.png" width="500">
 
