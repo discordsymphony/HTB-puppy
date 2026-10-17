@@ -107,3 +107,22 @@ smb: \> ls
 NT_STATUS_ACCESS_DENIED listing \*
 ```
 
+Next, we will bring our attention to Bloodhound:
+
+#### Running Bloodhound-python:
+
+```
+bloodhound-python -u 'levi.james' -p 'KingofAkron2025!' -ns 10.129.232.75 -d puppy.htb -c all --zip
+```
+
+#### Starting Bloodhound:
+
+```
+bloodhound
+```
+
+#### Starting Neo4j:
+
+```
+neo4j console
+```
