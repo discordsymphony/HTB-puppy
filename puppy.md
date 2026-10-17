@@ -292,4 +292,8 @@ Success! We have found ant.edwards SMB password.
 
 ## ant.edwards -> adam.silver
 
+Looking again at Bloodhound, we can see that ant.edwards is a member of Senior Devs, and Senior Devs has GenericAll over adam.silver:
+
+#### Bloodhound:
+
 <img src="images/03-ant-adam.png" width="500">
