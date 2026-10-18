@@ -369,7 +369,7 @@ evil-winrm -i 10.129.232.75 -u  adam.silver -p 'ChangeMe123!'
 
 ## adam.silver -> steph.cooper
 
-Once we are logged into the DC as adam.silver, we will navigate to the C:\Backups folder and download site-backup-2024-12-30.zip:
+Once we are logged into the DC as adam.silver, we begin enumeration of the machine's files and directories. Eventually, we notice a Backups folder in the C:\ directory. We will navigate to C:\Backups folder and download the file site-backup-2024-12-30.zip:
 
 ```
 cd C:/backups
