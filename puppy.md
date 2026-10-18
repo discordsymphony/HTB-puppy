@@ -340,7 +340,7 @@ EOF
 #### Use ldapmodify:
 
 ```
-ldapmodify -x -H ldap://10.129.232.75   -D 'ant.edwards@puppy.htb' -w 'Antman2025!' -f enable.ldif
+ldapmodify -x -H ldap://10.129.232.75 -D 'ant.edwards@puppy.htb' -w 'Antman2025!' -f enable.ldif
 ```
 
 #### Output:
