@@ -24,7 +24,7 @@ Finally, while logged in as steph.cooper, we discovered DPAPI credentials were b
 
 | Finding         | Severity     | Impact                                                         |
 | :-------------- | :----------- | :------------------------------------------------------------- |
-| GenericWrite | High:&nbsp;7.9 | Unauthorized access to sensitive resources |
+| GenericWrite | High:&nbsp;8.5 | Unauthorized access to sensitive resources |
 | GenericAll | High:&nbsp;8.0 | Account takeover leading to lateral movement |
 | Password disclosure | High:&nbsp;8.0 | Password disclosure leading to lateral movement |
 | DPAPI credentials | Critical:&nbsp;9.5 | Recovery of Domain Admin password |
