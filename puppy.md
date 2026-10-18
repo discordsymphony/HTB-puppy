@@ -328,7 +328,7 @@ To bypass this we can use an LDIF file and reactivate the account over LDAP:
 
 #### Create LDIF file:
 
-```bash
+```
 cat > enable.ldif <<'EOF'                                 
 dn: CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
 changetype: modify
