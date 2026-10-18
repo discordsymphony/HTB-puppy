@@ -17,3 +17,15 @@ Logging back into BloodHound, we discovered that ant.edwards had GenericAll priv
 Next, we discovered a backup directory and downloaded a zip file which contained the password for steph.cooper.
 
 Finally, while logged in as steph.cooper, we discovered DPAPI credentials were being stored on the machine. We transfered the encrypted password file and key to our local machine and used Impacket's DPAPI module to recover the planitext password of the steph.cooper_adm user before logging in and completing the machine.
+
+
+**Key Findings**
+
+
+| Finding         | Severity     | Impact                                                         |
+| :-------------- | :----------- | :------------------------------------------------------------- |
+| GenericWrite | Critical:&nbsp;9.0 | Unauthorized access to sensitive resources |
+| GenericAll | High:&nbsp;8.0 | Account takeover leading to lateral movement |
+| Password disclosure | High:&nbsp;8.0 | Password disclosure leading to lateral movement |
+| DPAPI credentials | Critical:&nbsp;9.2 | Recovery of Domain Admin password |
+
