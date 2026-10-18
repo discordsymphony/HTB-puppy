@@ -254,6 +254,8 @@ And now, we will log into the application using 'liverpool' as the password:
 
 Now we have access to a set of usernames and passwords, which we will now extract:
 
+<img src="images/04-keepass-users.png" width="500">
+
 #### users.txt:
 
 ```
