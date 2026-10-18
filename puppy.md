@@ -53,6 +53,8 @@ PORT      STATE SERVICE       VERSION
 54055/tcp open  msrpc         Microsoft Windows RPC
 ```
 
+Based on the nmap output, this is likely a Domain Controller, as DNS, Kerberos and LDAP are all running on the machine.
+
 ## levi.james -> ant.edwards
 
 Firstly, reading the Hack the Box machine information reveals the following:
